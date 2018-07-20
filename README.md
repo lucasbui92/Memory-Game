@@ -1,20 +1,15 @@
 # Memory Game Project
 
-## Table of Contents
+## Gameplay
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+Flip any 2 cards and match them to see if they are the same. If they are, then they are revealed, else they are concealed. Flip all cards until they match to win the game
 
-## Instructions
+## Scoring points
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+If the number of moves is more than 18, a star will disappear.
+If the number of moves is more than 26, another star will disappear.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Dependencies
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
-## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
