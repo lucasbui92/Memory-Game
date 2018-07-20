@@ -160,3 +160,42 @@ h1 {
     margin: 0px 300px;
     border-radius: 6px;
 }
+
+/*
+ * Adjusting the screen based on device types
+ */
+@media only screen and (min-width: 350px) and (max-width: 390px) {
+    .deck {
+        width: 100%;
+        min-height: 100%;
+    }
+
+    .deck .card {
+        height: 55px;
+        width: 55px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .deck {
+        width: 100%;
+        min-height: 100%;
+    }
+
+    .deck .card {
+        height: 65px;
+        width: 65px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .deck {
+        width: 100%;
+        min-height: 100%;
+    }
+
+    .deck .card {
+        height: 75px;
+        width: 75px;
+    }
+}

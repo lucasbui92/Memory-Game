@@ -53,24 +53,13 @@ function shuffle(array) {
 var openCards = [];
 var count = 0;
 var click = 0;
-var moves = 0;
+var inc_counter = 0;
 var timeStart = 0;
 var time = 0;
 var counter = document.querySelector('.moves');
 const restartGame = document.querySelector('.restart');
-cards_shuffling()
+cards_shuffling();
 
-
-/*
- * Increment the counter for each click
- */
-function increase_counter(click) {
-  if (click % 2 == 0) {
-    moves += 1
-    counter.innerHTML = moves;
-  }
-  return counter.innerHTML;
-}
 
 /*
  * Remove stars based on performance
@@ -95,6 +84,8 @@ function reveal_check(card) {
   }
 
   if (openCards.length == 2) {
+    inc_counter += 1;
+    counter.innerHTML = inc_counter;
     if (openCards[0].innerHTML == openCards[1].innerHTML) {
       openCards.forEach(function(card) {
         card.classList.add('match');
@@ -175,7 +166,7 @@ function reset() {
   openCards = [];
   count = 0;
   click = 0;
-  moves = 0;
+  inc_counter = 0;
   counter.innerHTML = 0;
 
   //Add until the game has 3 stars
@@ -200,15 +191,14 @@ function reset() {
 /*
  * Check for the winning condition
  */
-function winning(value) {
+function winning() {
   const stars = document.querySelectorAll('.stars > li');
   const time = document.querySelector('.timer').innerHTML;
   const closeButton = document.querySelector('.close');
   const playAgain = document.querySelector('.play-again');
 
-  var winText = "<p>YOU WON!! The number of moves taken is " + value
-  + ". The total time taken is " + time + ". Your star rating is "
-  + stars.length + ".</p>";
+  var winText = "<p>" + `YOU WON!! The number of moves taken is ${counter.innerHTML}.
+  The total time taken is ${time}. Your star rating is ${stars.length}.` + "</p>";
 
   if (count == cardList.length) {
     showModal();
@@ -228,11 +218,11 @@ function winning(value) {
  */
 cardList.forEach(function(card) {
   card.addEventListener('click', function(c) {
-    click += 1;
-    var value = increase_counter(click);
+    //click += 1;
+    //var value = increase_counter(click);
     remove_star();
     reveal_check(card);
-    winning(value);
+    winning();
     timeStart += 1;
     if (timeStart == 1) {
       count_time();
